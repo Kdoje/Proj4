@@ -1,0 +1,8 @@
+#Settings and such
+.cproject
+.project
+.settings/*
+
+#complied things to ignore
+Debug/*
+/Debug/
