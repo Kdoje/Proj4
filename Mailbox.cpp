@@ -45,3 +45,18 @@ Mailbox::~Mailbox() {
 	sem_destroy(&recSem);
 }
 
+//returns the summation of val1 from all messages recieved
+int waitForMessages(int messagesNeeded, Mailbox mailboxes[]) {
+	int messages = messagesNeeded;
+	int sum =0;
+	while (messages > 0) {
+		contents msgContents;
+		msgContents = mailboxes[0].RecvMsg(1);
+		//if at least one thread isn't done then make isDone false
+		sum+=msgContents.val1;
+		//printf("      read message from %d\n", msgContents.iSender);
+		messages--;
+	}
+	return sum;
+}
+

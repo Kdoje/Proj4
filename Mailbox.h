@@ -30,7 +30,6 @@ const contents NULL_CONTENTS ={
 
 bool operator ==(const contents& a, const contents& b);
 
-
 class Mailbox {
 	sem_t recSem, sendSem;
 	contents msgContents;
@@ -43,5 +42,8 @@ public:
 	contents RecvMsg(int iSender);
 	virtual ~Mailbox();
 };
+
+int waitForMessages(int messagesNeeded, Mailbox mailboxes[]);
+
 
 #endif /* MAILBOX_H_ */
