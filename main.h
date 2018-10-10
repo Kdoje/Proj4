@@ -14,3 +14,4 @@ int findInBlock(unsigned char *_block, int blockSize, const char *_toFind, int f
 int findInRange(unsigned char *_block, int startInd, int endInd, const char *_toFind,  int findSize);
 void *findThread(void *threadid);
 #endif /* MAIN_H_ */
+

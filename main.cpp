@@ -127,7 +127,7 @@ int main(int argc, char *argv[]){
 						//printf("main() creating thread %d\n", i + 1);
 						pthread_t threads[threads];
 						threadError = pthread_create(&threads[i], NULL, findThread,
-								(void *) i + 1); //this sets the thread id's to be 1-> range
+								(void *) (i + 1)); //this sets the thread id's to be 1-> range
 						if (threadError) {
 							printf("couldn't make threads \n");
 							exit(-1);
