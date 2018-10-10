@@ -4,5 +4,7 @@
 .settings/*
 
 #complied things to ignore
-Debug/*
-/Debug/
+Debug/*.o
+Deubg/*.d
+Debug/proj4
+
