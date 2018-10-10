@@ -21,12 +21,8 @@ struct contents{
 	int type;
 };
 typedef struct contents contents;
-const contents NULL_CONTENTS ={
-		.val1=0,
-		.val2=0,
-		.iSender=EMPTY,
-		.type=EMPTY,
-};
+const contents NULL_CONTENTS ={0, 0, EMPTY, EMPTY};
+
 
 bool operator ==(const contents& a, const contents& b);
 

@@ -63,13 +63,13 @@ int main(int argc, char *argv[]){
 		//part 1 of the project
 		if (argc == 3) {
 			if (fileToRead < 0) {
-				printf("invalid file name");
+				printf("invalid file name\n");
 				return -1;
 			}
 
 			//finds the size of the file
 			if (fstat(fileToRead, &sb) < 0) {
-				perror("Could not read file to obtain its size");
+				perror("Could not read file to obtain its size\n");
 				return -1;
 			}
 			int sizeBytes = sb.st_size;
@@ -77,7 +77,7 @@ int main(int argc, char *argv[]){
 
 			//find the number of occuranceses of the search term
 			int occurences = findOccurances(fileToRead, blockSize, _search, searchSize);
-			printf("Occurrences of \"%s\" is: %d", _search, occurences);
+			printf("Occurrences of \"%s\" is: %d\n", _search, occurences);
 
 			if (close(fileToRead) < 0)
 				return -1;
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]){
 			if(atoi(argv[3])){
 				blockSize=atoi(argv[3]);
 				int occurances = findOccurances(fileToRead, blockSize, _search, searchSize);
-				printf("Occurrences of \"%s\" is: %d", _search, occurances);
+				printf("Occurrences of \"%s\" is: %d\n", _search, occurances);
 				return 0;
 			}
 			char num[3];
@@ -109,7 +109,7 @@ int main(int argc, char *argv[]){
 				if(strcmp(argv[3], "mmap")==0){
 					printf("using mmap\n");
 					int occurances=findInBlock((unsigned char *)_mappedFile, (int) sb.st_size, _search, searchSize);
-					printf("Occurrences of \"%s\" is: %d", _search, occurances);
+					printf("Occurrences of \"%s\" is: %d\n", _search, occurances);
 					return 0;
 				}
 				else{
@@ -157,7 +157,7 @@ int main(int argc, char *argv[]){
 					mailbox[threads].SendMsg(toSend);
 					//get messages from all the threads
 					int occurances = waitForMessages(threads, mailbox);
-					printf("Occurrences of \"%s\" is: %d", _search, occurances);
+					printf("Occurrences of \"%s\" is: %d\n", _search, occurances);
 				}
 
 				//otherwise the arg is invalid
@@ -168,13 +168,13 @@ int main(int argc, char *argv[]){
 				return 0;
 			}
 			else{
-				printf("invalid arg 3");
+				printf("invalid arg 3\n");
 				return -1;
 			}
 		}
 	}
 	else{
-		printf("error, please check argument count and validity");
+		printf("error, please check argument count and validity\n");
 		return -1;
 	}
 }
