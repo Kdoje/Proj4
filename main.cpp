@@ -16,6 +16,7 @@
 #include"Mailbox.h"
 #include "main.h"
 const int MAX_THREAD=16;
+const int MAX_SIZE=8192;
 Mailbox mailbox[MAX_THREAD+1];
 char *_mappedFile, *_search;
 int searchSize;
@@ -88,6 +89,10 @@ int main(int argc, char *argv[]){
 		else if(argc==4){
 			if(atoi(argv[3])){
 				blockSize=atoi(argv[3]);
+				if(blockSize>MAX_SIZE){
+					printf("block size too large\n");
+					return -1;
+				}
 				int occurances = findOccurances(fileToRead, blockSize, _search, searchSize);
 				printf("Occurrences of \"%s\" is: %d\n", _search, occurances);
 				return 0;
